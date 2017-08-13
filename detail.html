@@ -57,7 +57,7 @@
 </body>
 <script>
     $(function() {
-        var shuzu;
+        var shuzu=[];
         //多选
         $(".select").find("li").on("click",function(){
             var $this=$(this).find(".xuanze");
@@ -83,8 +83,8 @@
                         + direction + "滑动了" +distance+ "像素 " +"你在"+phase+"中");
                 distance=distance/(document.documentElement.clientWidth/750);   //得到的distance为750设计稿上的距离
                 console.log("---"+distance);
-                if(direction=="right"&&distance>=272&&distance<=400&&duration<=5000&&phase=="end"){
-                    if(!shuzu){
+                if(direction=="right"&&distance>=280&&distance<=354&&duration<=5000&&phase=="end"){
+                    if(shuzu.length<=0){
                         alert("请至少选择一个选项")
                     }else{
                         setTimeout(function(){
