@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/common/common.css">
     <title>详情01</title>
     <style>
-        .title{font-size: .48rem;height:1.65rem;line-height:1.65rem;text-align: center;font-weight: 600;margin-top:.6rem;}
+        .title{animation:dou01 1s ease;font-size: .48rem;height:1.65rem;line-height:1.65rem;text-align: center;font-weight: 600;margin-top:.6rem;}
         .pic{width:4.86rem;height:3.27rem;margin:0 auto;background-color: #65cdff}
 
         .select{text-align: center;margin-top:.5rem;}
@@ -22,17 +22,34 @@
 
         .animate{animation: run 1s ease}
         @-webkit-keyframes run {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(0, -15px);
+            }
+            50% {
+                transform: translate(0, 0);
+            }
+            75% {
+                transform: translate(0, -7px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        @-webkit-keyframes dou01 {
             0%{
                 transform: translate(0,0);
             }
             25%{
-                transform: translate(0,-15px);
+                transform: translate(0,-120px);
             }
             50%{
                 transform: translate(0,0);
             }
             75%{
-                transform: translate(0,-7px);
+                transform: translate(0,-20px);
             }
             100%{
                 transform: translate(0,0);
