@@ -19,6 +19,25 @@
         .huadong{float: right;margin-top:.5rem;}
         .line {  width: 0.7rem;  height:.7rem;  margin:0.23rem 2.3rem 0 0 ;  background-color: yellow; }
         .go{width:1.16rem;height:1.16rem;border-radius: 50%;background-color: yellowgreen;font-size: .40rem;text-align: center;line-height: 1.16rem}
+
+        .animate{animation: run 1s ease}
+        @-webkit-keyframes run {
+            0%{
+                transform: translate(0,0);
+            }
+            25%{
+                transform: translate(0,-15px);
+            }
+            50%{
+                transform: translate(0,0);
+            }
+            75%{
+                transform: translate(0,-7px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -60,6 +79,14 @@
         var shuzu=[];
         //多选
         $(".select").find("li").on("click",function(){
+            //动画
+            if(  $(this).hasClass("animate")){
+                $(this).removeClass("animate");
+            }else{
+                $(this).addClass("animate");
+            }
+
+            //选择标记
             var $this=$(this).find(".xuanze");
             if( $this.hasClass("none")){
                 $this.removeClass("none");
