@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/common/common.css">
+    <title>详情01</title>
+    <style>
+        .title{font-size: .48rem;height:1.65rem;line-height:1.65rem;text-align: center;font-weight: 600;margin-top:.6rem;}
+        .pic{width:4.86rem;height:3.27rem;margin:0 auto;background-color: #65cdff}
+
+        .select{text-align: center;margin-top:.5rem;}
+        ul{width:6.4rem;margin: 0 auto;}
+        li{margin-top:.3rem;width:2.6rem;height:.7rem;line-height: .7rem;background-color: #65cdff;font-size: .38rem;float:left;     position: relative}
+        li:nth-child(2n+1){margin-right:1.1rem;}
+        li .xuanze{width:.4rem;height:.4rem;background-color: red;   position: absolute;right:0;top:.15rem;}
+        li .xuanze.none{display:none;}
+
+        .huadong{float: right;margin-top:.5rem;}
+        .line {  width: 2.7rem;  height:5px;  margin:1.1rem .3rem 0 0 ;  background-color: yellow; }
+        .go{width:1.16rem;height:1.16rem;border-radius: 50%;background-color: yellowgreen;font-size: .40rem;text-align: center;line-height: 1.16rem}
+    </style>
+</head>
+<body>
+
+<div class="title">
+   您获取资讯的通道是？
+</div>
+<div class="pic">
+
+</div>
+
+<div class="select">
+    <ul class="clear">
+        <li><span>纸媒</span><span class="xuanze none"></span></li>
+        <li><span>网络</span><span class="xuanze none"></span></li>
+        <li><span>电视</span><span class="xuanze none"></span></li>
+        <li><span>杂志</span><span class="xuanze none"></span></li>
+        <li><span>广告</span><span class="xuanze none"></span></li>
+        <li><span>其他</span><span class="xuanze none"></span></li>
+    </ul>
+</div>
+
+<div class="huadong">
+    <div class="line touchStart fl"></div>
+    <div class="go fl">Go</div>
+</div>
+
+
+
+
+
+
+<script src="js/common/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/common/jquery.touchSwipe.min.js"></script>
+<script src="js/common/resize.js"></script>
+</body>
+<script>
+    $(function() {
+        var shuzu;
+        //多选
+        $(".select").find("li").on("click",function(){
+            var $this=$(this).find(".xuanze");
+            if( $this.hasClass("none")){
+                $this.removeClass("none");
+            }else{
+                $this.addClass("none");
+            }
+
+            var arr=[];
+            $(".xuanze:not(.none)").each(function(){
+                arr.push($(this).siblings().text());
+            });
+            console.log(arr);
+            shuzu=arr;
+        });
+
+
+        $(".touchStart").swipe({
+            swipeStatus:function(event, phase, direction, distance, duration,fingerCount) {    //distance实际距离
+                console.log("---数组"+shuzu);
+                console.log("你用"+fingerCount+"个手指以"+duration+"秒的速度向"
+                        + direction + "滑动了" +distance+ "像素 " +"你在"+phase+"中");
+                distance=distance/(document.documentElement.clientWidth/750);   //得到的distance为750设计稿上的距离
+                console.log("---"+distance);
+                if(direction=="right"&&distance>=272&&distance<=400&&duration<=5000&&phase=="end"){
+                    if(!shuzu){
+                        alert("请至少选择一个选项")
+                    }else{
+                        setTimeout(function(){
+                            location.href="test.html"
+                        },300)
+                    }
+                }
+            }
+        });
+    });
+
+</script>
+</html>

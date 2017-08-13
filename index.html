@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/common/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>首页</title>
+</head>
+<body>
+
+     <h3>武汉印象城</h3>
+     <div class="right">有志者</div>
+     <div class="left">跟我来</div>
+     <div class="touchStart">印象城</div>
+     <div class="line"></div>
+     <div class="circle">跳转</div>
+
+
+     <script src="js/common/jquery-3.1.0.min.js"></script>
+     <script type="text/javascript" src="js/common/jquery.touchSwipe.min.js"></script>
+     <script src="js/common/resize.js"></script>
+</body>
+<script>
+    $(function() {
+        $(".touchStart").swipe({
+            swipeStatus:function(event, phase, direction, distance, duration,fingerCount) {    //distance实际距离
+                console.log("你用"+fingerCount+"个手指以"+duration+"秒的速度向"
+                        + direction + "滑动了" +distance+ "像素 " +"你在"+phase+"中");
+                distance=distance/(document.documentElement.clientWidth/750);   //得到的distance为750设计稿上的距离
+                console.log("---"+distance);
+                if(direction=="down"&&distance>=265&&distance<=375&&duration<=5000&&phase=="end"){
+                  // console.log(event.srcElement);
+                    setTimeout(function(){
+                        location.href="test.html"
+                    },300)
+                }
+            }
+        });
+    });
+</script>
+</html>
