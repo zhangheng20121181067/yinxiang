@@ -1,0 +1,8 @@
+.title{animation:dou01 1s ease;font-size: .48rem;height:2.18rem;line-height:3.15rem;text-align: center;color:#ec8804;
+    font-weight: 600; background: url(../images/detailArea.png) no-repeat center right;background-size: 95% 100%}
+.pic{width:5.10rem;height:3.57rem;margin:.5rem auto 0;  background: url(../images/detailArea02.png) no-repeat center;
+    background-size: contain;     position: relative}
+.pic .qiqiu{width:1.85rem;height:1.34rem;   background: url(../images/qiqiu.png) no-repeat ;background-size: cover;
+    position: absolute;left:-1.0rem;     animation: piaofu 3s ease infinite}
+.pic .cloud{width:1.06rem;height:0.66rem;  background: url(../images/cloud.png) no-repeat ;background-size: cover;
+    position: absolute;right:-0.90rem;top:.3rem;    animation: piaofu 3s ease infinite}

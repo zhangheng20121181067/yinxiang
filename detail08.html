@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/common/common.css">
+    <link rel="stylesheet" href="css/common/commonDetail.css">
+    <link rel="stylesheet" href="css/detail08.css">
+    <title>详情08</title>
+</head>
+<body>
+
+<div class="title">
+   <p>您是使用那种交通<br>工具来店的？</p>
+</div>
+<div class="pic"></div>
+
+<div class="select">
+    <ul class="clear">
+        <li><span>A. 私家车</span><span class="xuanze none"></span></li>
+        <li><span>B. 出租车</span><span class="xuanze none"></span></li>
+        <li><span>C. 地铁</span><span class="xuanze none"></span></li>
+        <li><span>D. 公交车</span><span class="xuanze none"></span></li>
+        <li><span>E. 步行</span><span class="xuanze none"></span></li>
+        <li><span>F. 其他</span><span class="xuanze none"></span></li>
+    </ul>
+</div>
+
+<div class="huadong">
+    <div class="line touchStart fl"></div>
+    <div class="go fl"></div>
+</div>
+
+<script src="js/common/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/common/jquery.touchSwipe.min.js"></script>
+<script src="js/common/resize.js"></script>
+</body>
+<script>
+    $(function() {
+        var shuzu=[];
+        //多选
+        $(".select").find("li").on("click",function(){
+            //动画
+            if(  $(this).hasClass("animate")){
+                $(this).removeClass("animate");
+            }else{
+                $(this).addClass("animate");
+            }
+
+            //选择标记
+            var $this=$(this).find(".xuanze");
+            if( $this.hasClass("none")){
+                $this.removeClass("none");
+            }else{
+                $this.addClass("none");
+            }
+
+            //定义一个空数组
+            var arr=[];
+            $(".xuanze:not(.none)").each(function(){
+                arr.push($(this).siblings().text());   //将选择的选项放到数组
+            });
+            console.log(arr);
+            shuzu=arr;
+        });
+
+
+        $(".touchStart").swipe({
+            swipeStatus:function(event, phase, direction, distance, duration,fingerCount) {    //distance实际距离
+                console.log("---数组"+shuzu);
+                console.log("你用"+fingerCount+"个手指以"+duration+"秒的速度向"
+                        + direction + "滑动了" +distance+ "像素 " +"你在"+phase+"中");
+                distance=distance/(document.documentElement.clientWidth/750);   //得到的distance为750设计稿上的距离
+                console.log("---"+distance);
+                if(direction=="right"&&distance>=280&&distance<=354&&duration<=5000&&phase=="end"){
+                    if(shuzu.length<=0){
+                        alert("请至少选择一个选项")
+                    }else{
+                        setTimeout(function(){
+                            location.href="detail09.html"
+                        },300)
+                    }
+                }
+            }
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,5 @@
+.title{animation:dou01 1s ease;height:2.54rem;margin-top:.3rem;text-align: center;
+    background: url(../images/detailYun.png) no-repeat center;background-size: contain}
+.title p{font-size: .42rem;font-weight: 600;color:#ec8804; padding-top:.6rem;}
+.pic{width:4.12rem;height:3.25rem;margin:.2rem auto 0;  background: url(../images/detailSong04.png) no-repeat center;
+    background-size: contain;  }
