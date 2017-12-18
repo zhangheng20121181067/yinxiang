@@ -1,6 +1,0 @@
-.title{animation:dou01 1s ease;font-size: .40rem;height:2.25rem;margin-top:.1rem;line-height:2.95rem;text-align: center;color:#ec8804;
-    font-weight: 600; background: url(../images/detailShop.png) no-repeat center;background-size: 90% 100%}
-.pic{width:3.20rem;height:3.10rem;margin:.7rem auto 0;  background: url(../images/detailShop03.png) no-repeat center;
-    background-size: cover;     position: relative}
-.pic .bird{width:1.62rem;height:.96rem;   background: url(../images/bird.png) no-repeat ;background-size: cover;
-    position: absolute;left:-1.62em; top:-.6rem;    animation: piaofu 3s ease infinite}

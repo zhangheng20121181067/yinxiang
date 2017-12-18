@@ -1,42 +1,256 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" href="css/common/common.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>首页</title>
-</head>
-<body>
-
-     <h3>武汉印象城</h3>
-     <div class="right">有志者</div>
-     <div class="left">跟我来</div>
-     <div class="touchStart">印象城</div>
-     <div class="line"></div>
-     <div class="circle">跳转</div>
-
-
-     <script src="js/common/jquery-3.1.0.min.js"></script>
-     <script type="text/javascript" src="js/common/jquery.touchSwipe.min.js"></script>
-     <script src="js/common/resize.js"></script>
-</body>
-<script>
-    $(function() {
-        $(".touchStart").swipe({
-            swipeStatus:function(event, phase, direction, distance, duration,fingerCount) {    //distance实际距离
-                console.log("你用"+fingerCount+"个手指以"+duration+"秒的速度向"
-                        + direction + "滑动了" +distance+ "像素 " +"你在"+phase+"中");
-                distance=distance/(document.documentElement.clientWidth/750);   //得到的distance为750设计稿上的距离
-                console.log("---"+distance);
-                if(direction=="down"&&distance>=265&&distance<=375&&duration<=5000&&phase=="end"){
-                  // console.log(event.srcElement);
-                    setTimeout(function(){
-                        location.href="detail07.html"
-                    },300)
-                }
-            }
-        });
-    });
-</script>
+    <title>印象城</title>
+    <meta name="description" content=""/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+    <script src="https://cdn.bootcss.com/jquery.touchswipe/1.6.18/jquery.touchSwipe.js"></script>   
+                      
+    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
+    <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+  </head>
+  <body ontouchstart>
+        <audio id="Jaudio" controls="controls" hidden="hidden" autoplay="autoplay" loop="loop">
+                <source src="./yangguanghaitan.mp3" type="audio/mpeg" />
+        </audio>
+        
+        <div class="modal"></div>
+        <div class="pop">
+           <h3>请至少选择一个选项！</h3>
+           <div class="cancel">确定</div>
+        </div>
+       
+    <div class="swiper-container hide">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slideOne box box-ver box-ac swiper-no-swiping" >
+            <h3>武汉印象城</h3>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="touchStart">
+                <div class="shoushi"></div>
+            </div>
+            <div class="line"></div>
+            <div class="arrow"></div>
+            <div class="circle"></div>
+            <p>立即答题</p>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="1">
+            <div class="title1 title  animated">
+                <div class="text tx-c">
+                    您获取资讯的通道？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center1 center animated"></div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span>A</span>.纸媒<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span>B</span>.网络<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>C</span>.电视<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span>D</span>.杂志<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span>E</span>.广告<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>F</span>.其他<span class="xuanze none"></span></div>      
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="2">
+            <div class="title2 title animated ">
+                <div class="text tx-c">
+                    您来自哪个区域？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center2 center animated">
+                    <div class="qiqiu piaofu"></div>
+                    <div class="cloud piaofu"></div>
+                </div>
+            </div>
+            <div class="question-list-danxuan">
+                <div class="question-item question1"><span>A</span>.青山区<span class="xuanze none"></div> 
+                <div class="question-item question2"><span>B</span>.洪山区<span class="xuanze none"></div>   
+                <div class="question-item question3"><span>C</span>.江岸区<span class="xuanze none"></div>   
+                <div class="question-item question1"><span>D</span>.江夏区<span class="xuanze none"></div>   
+                <div class="question-item question2"><span>E</span>.东西湖区<span class="xuanze none"></div>   
+                <div class="question-item question3"><span>F</span>.其他<span class="xuanze none"></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide slideFour box box-ver box-ac swiper-no-swiping" data-index="3">
+            <div class="title3 title animated ">
+                <div class="text tx-c">
+                    您通常什么时间到商城购物？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center3 center animated">
+                    <div class="bird piaofu"></div>
+                </div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span class="font32">A</span>.折扣促销<span class="xuanze none"></span></div>
+                <div class="question-item question2"><span class="font32">B</span>.新品上市<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span class="font32">C</span>.节假日<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span class="font32">D</span>.工作日<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span class="font32">E</span>.生日/纪念日<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span class="font32">F</span>.不一定<span class="xuanze none"></span></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="4">
+            <div class="title1 title animated ">
+                <div class="text tx-c">
+                    赠送哪种商品，您会欣然 <br/>带回家？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center4 center animated">
+                   
+                </div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span class="">A</span>.代金券<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span class="">B</span>.小礼品<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span class="">C</span>.电器类<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span class="">D</span>.食品类<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span class="">E</span>.水果类<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span class="">F</span>.其他<span class="xuanze none"></span></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="5">
+            <div class="title1 title animated ">
+                <div class="text tx-c">
+                    您会对哪类商户最喜爱？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center5 center animated"></div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span>A</span>.餐饮类<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span>B</span>.娱乐类<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>C</span>.图书馆<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span>D</span>.健身美容<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span>E</span>.儿童早教<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>F</span>.超市<span class="xuanze none"></span></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="6">
+            <div class="title2 title title6 animated ">
+                <div class="text tx-c font44">
+                    您觉得商场还要增加 <br>哪些设施？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center6 center animated"></div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span>A</span>.母婴室<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span>B</span>.休憩空间<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>C</span>.雨伞租赁<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span>D</span>.自助服务<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span>E</span>.儿童区<span class="xuanze none"></span></div>   
+                <div class="question-item question3 advice"><label>您的建议：</label><input type="text"></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide slideEight box box-ver box-ac swiper-no-swiping" data-index="7">
+            <div class="title2 title animated ">
+                <div class="text tx-c font4">
+                    您更喜欢哪种类型课堂活动？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center7 center animated"></div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span class="font32">A</span>.文化艺术类<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span class="font32">B</span>.生活美学类<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span class="font32">C</span>.养生类<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span class="font32">D</span>.美食类<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span class="font32">E</span>.其他<span class="xuanze none"></span></div>   
+                <div class="question-item question3 advice"><label>您的建议：</label><input type="text"></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="8">
+            <div class="title1 title animated ">
+                <div class="text tx-c">
+                    您是使用那种交通<br>工具来店的？
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center8 center animated"></div>
+            </div>
+            <div class="question-list">
+                <div class="question-item question1"><span>A</span>.私家车<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span>B</span>.出租车<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>C</span>.地铁<span class="xuanze none"></span></div>   
+                <div class="question-item question1"><span>D</span>.公交车<span class="xuanze none"></span></div>   
+                <div class="question-item question2"><span>E</span>.步行<span class="xuanze none"></span></div>   
+                <div class="question-item question3"><span>F</span>.其他<span class="xuanze none"></span></div> 
+            </div>
+            <div class="next">
+                <div class="icon-go"></div>
+            </div>
+        </div>
+        <div class="swiper-slide box box-ver box-ac swiper-no-swiping" data-index="9">
+            <div class="title3 title9 title animated ">
+                <div class="text tx-c font4">
+                    您参加过课堂活动吗？<br><span>（集艺术、美食、娱乐为一体的课堂活动）</span>
+                </div>
+            </div>
+            <div class="box-f1 box box-ac box-pc">
+                <div class="center9 center animated"></div>
+            </div>
+            <div class="question-list-danxuan">
+                <div class="question-item question1"><span class="danxuan">A</span>.参加过<span class="xuanze none"></span></div> 
+                <div class="question-item question2"><span class="danxuan">B</span>.没有参加<span class="xuanze none"></span></div>   
+            </div>
+            <div class="next">
+                <div class="icon-go post submit"></div>
+            </div>
+        </div>
+        <div class="swiper-slide slideElev box box-ver box-ac swiper-no-swiping">
+                <div class="title title10 animated">
+                    <div class="text">
+                            真诚地感谢您的参与！
+                    </div>
+                </div>
+                <p class="fromLeft">我们の地址</p>
+                <div class="center10 center animated"></div>
+                <div class="fromRight"> 
+                    <p>地址：青山和平大道与冶金大 <br> 道交汇处</p>
+                </div>
+                <div class="wugui">
+                    <img src="./code.png" alt="">
+                    <p>扫码加入会员</p>
+                </div>
+            </div>
+      </div>
+    </div>
+  </body>
 </html>
